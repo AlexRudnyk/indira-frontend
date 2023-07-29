@@ -24,7 +24,7 @@ export const GoodDetailsItem = () => {
     async function getGood() {
       try {
         const { data } = await axios.get(
-          `http://localhost:3030/api/goods/id/${id}`
+          `https://indira-backend.vercel.app/api/goods/id/${id}`
         );
         setGood(data);
       } catch (error) {

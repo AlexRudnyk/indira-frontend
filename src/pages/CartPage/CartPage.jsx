@@ -45,7 +45,7 @@ export const CartPage = () => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:3030/api/users/order',
+        'https://indira-backend.vercel.app/api/users/order',
         mailBody
       );
       dispatch(clearCart());
