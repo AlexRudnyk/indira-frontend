@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/indira-frontend/static/css/main.073c9b0a.css",
-    "main.js": "/indira-frontend/static/js/main.8d6660bd.js",
-    "static/js/787.dcd56b10.chunk.js": "/indira-frontend/static/js/787.dcd56b10.chunk.js",
-    "static/media/logo.svg": "/indira-frontend/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/indira-frontend/static/css/main.4aeb4aac.css",
+    "main.js": "/indira-frontend/static/js/main.b9b6037d.js",
+    "static/media/mandala.png": "/indira-frontend/static/media/mandala.d674d9cac6fd1954a536.png",
+    "static/media/success-check.png": "/indira-frontend/static/media/success-check.d6b8af90b8407995f8bc.png",
     "index.html": "/indira-frontend/index.html",
-    "main.073c9b0a.css.map": "/indira-frontend/static/css/main.073c9b0a.css.map",
-    "main.8d6660bd.js.map": "/indira-frontend/static/js/main.8d6660bd.js.map",
-    "787.dcd56b10.chunk.js.map": "/indira-frontend/static/js/787.dcd56b10.chunk.js.map"
+    "static/media/Сlose.svg": "/indira-frontend/static/media/Сlose.4ca60f1813426122dabf98a3268fb691.svg",
+    "main.4aeb4aac.css.map": "/indira-frontend/static/css/main.4aeb4aac.css.map",
+    "main.b9b6037d.js.map": "/indira-frontend/static/js/main.b9b6037d.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.8d6660bd.js"
+    "static/css/main.4aeb4aac.css",
+    "static/js/main.b9b6037d.js"
   ]
 }
