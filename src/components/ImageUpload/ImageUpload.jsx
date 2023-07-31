@@ -90,7 +90,7 @@ export const ImageUpload = ({ setFieldValue }) => {
                 <PreviewBtn
                   type="button"
                   onClick={uploadImage}
-                  disabled={!image}
+                  disabled={isUploaded}
                 >
                   Upload
                 </PreviewBtn>

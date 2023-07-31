@@ -1,6 +1,7 @@
 import { useAuth } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { CartItem } from 'components/CartItem';
+import BeatLoader from 'react-spinners/BeatLoader';
 import {
   CartPageSection,
   CartPageContainer,
@@ -11,6 +12,7 @@ import {
   TotalSumSpan,
   EmptyCartMessageWrapper,
   EmptyCartMessage,
+  LoaderContainer,
 } from './CartPage.styled';
 import { useState } from 'react';
 import axios from 'axios';
@@ -55,39 +57,42 @@ export const CartPage = () => {
     }
   };
 
-  return (
-    !isRefreshing && (
-      <CartPageSection>
-        <CartPageContainer>
-          {user.goodsInCart.length !== 0 ? (
-            <>
-              <CartPageTitle>Your goods in cart</CartPageTitle>
-              <ul>
-                {user.goodsInCart.map(goodId => (
-                  <CartItem
-                    goodId={goodId}
-                    key={goodId}
-                    getTotalSum={getTotalSum}
-                    getOrder={handleGetOrder}
-                  />
-                ))}
-              </ul>
-              <MakeOrderWrapper>
-                <TotalSumText>
-                  Your order is <TotalSumSpan>{totalSum}</TotalSumSpan> UAH
-                </TotalSumText>
-                <OrderBtn type="button" onClick={handleOrderClick}>
-                  Make order
-                </OrderBtn>
-              </MakeOrderWrapper>
-            </>
-          ) : (
-            <EmptyCartMessageWrapper>
-              <EmptyCartMessage>Your cart is empty</EmptyCartMessage>
-            </EmptyCartMessageWrapper>
-          )}
-        </CartPageContainer>
-      </CartPageSection>
-    )
+  return isRefreshing ? (
+    <LoaderContainer>
+      {' '}
+      <BeatLoader />
+    </LoaderContainer>
+  ) : (
+    <CartPageSection>
+      <CartPageContainer>
+        {user.goodsInCart.length !== 0 ? (
+          <>
+            <CartPageTitle>Your goods in cart</CartPageTitle>
+            <ul>
+              {user.goodsInCart.map(goodId => (
+                <CartItem
+                  goodId={goodId}
+                  key={goodId}
+                  getTotalSum={getTotalSum}
+                  getOrder={handleGetOrder}
+                />
+              ))}
+            </ul>
+            <MakeOrderWrapper>
+              <TotalSumText>
+                Your order is <TotalSumSpan>{totalSum}</TotalSumSpan> UAH
+              </TotalSumText>
+              <OrderBtn type="button" onClick={handleOrderClick}>
+                Make order
+              </OrderBtn>
+            </MakeOrderWrapper>
+          </>
+        ) : (
+          <EmptyCartMessageWrapper>
+            <EmptyCartMessage>Your cart is empty</EmptyCartMessage>
+          </EmptyCartMessageWrapper>
+        )}
+      </CartPageContainer>
+    </CartPageSection>
   );
 };

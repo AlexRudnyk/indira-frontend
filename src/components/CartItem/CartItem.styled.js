@@ -34,7 +34,7 @@ export const CartItemText = styled.p`
 `;
 
 export const CartItemImg = styled.img`
-  width: 100px;
+  width: 120px;
   margin-right: 20px;
   border-radius: 10px;
 `;

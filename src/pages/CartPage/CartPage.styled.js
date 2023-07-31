@@ -70,3 +70,12 @@ export const EmptyCartMessageWrapper = styled.div`
 export const EmptyCartMessage = styled.p`
   font-size: 26px;
 `;
+
+export const LoaderContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #b36c40, white);
+`;

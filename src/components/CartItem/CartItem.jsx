@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteFromCart } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
+import BeatLoader from 'react-spinners/BeatLoader';
 import {
   CounterWrapper,
   CartItemLine,
@@ -46,38 +47,38 @@ export const CartItem = ({ goodId, getTotalSum, getOrder }) => {
     dispatch(deleteFromCart(goodId));
   };
 
-  return (
-    !isRefreshing && (
-      <CartItemLine>
-        <ChosenGoodWrapper>
-          <div>
-            <CartItemImg src={good.photoURL} alt="good in cart" width="100px" />
-          </div>
-          <div>
-            <CartItemTitle>{good.title}</CartItemTitle>
-            <CartItemText>{good.text}</CartItemText>
-          </div>
-        </ChosenGoodWrapper>
-        <CounterWrapper>
-          <CartItemQuantityBtn
-            type="button"
-            onClick={handleMinusClick}
-            disabled={quantity <= 1}
-          >
-            -
-          </CartItemQuantityBtn>
-          <CartItemQuantity>{quantity}</CartItemQuantity>
-          <CartItemQuantityBtn type="button" onClick={handlePlusClick}>
-            +
-          </CartItemQuantityBtn>
-        </CounterWrapper>
-        <CartItemSum>{sum} UAH</CartItemSum>
+  return isRefreshing ? (
+    <BeatLoader />
+  ) : (
+    <CartItemLine>
+      <ChosenGoodWrapper>
         <div>
-          <CartItemDelBtn type="button" onClick={handleDeleteClick}>
-            Delete
-          </CartItemDelBtn>
+          <CartItemImg src={good.photoURL} alt="good in cart" width="100px" />
         </div>
-      </CartItemLine>
-    )
+        <div>
+          <CartItemTitle>{good.title}</CartItemTitle>
+          <CartItemText>{good.text}</CartItemText>
+        </div>
+      </ChosenGoodWrapper>
+      <CounterWrapper>
+        <CartItemQuantityBtn
+          type="button"
+          onClick={handleMinusClick}
+          disabled={quantity <= 1}
+        >
+          -
+        </CartItemQuantityBtn>
+        <CartItemQuantity>{quantity}</CartItemQuantity>
+        <CartItemQuantityBtn type="button" onClick={handlePlusClick}>
+          +
+        </CartItemQuantityBtn>
+      </CounterWrapper>
+      <CartItemSum>{sum} UAH</CartItemSum>
+      <div>
+        <CartItemDelBtn type="button" onClick={handleDeleteClick}>
+          Delete
+        </CartItemDelBtn>
+      </div>
+    </CartItemLine>
   );
 };

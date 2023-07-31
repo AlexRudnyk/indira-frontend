@@ -1,13 +1,16 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import BeatLoader from 'react-spinners/BeatLoader';
 import {
   GoodDetailsContainer,
   GoodDetailsWrapper,
+  GoodDetailsImgContainer,
   GoodDetailsImg,
   GoodDetailsTitle,
   GoodDetailsText,
   GoodDetailsBtn,
+  LoaderContainer,
 } from './GoodDetailsItem.styled';
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'redux/auth/operations';
@@ -17,18 +20,22 @@ import { toast } from 'react-toastify';
 export const GoodDetailsItem = () => {
   const { id } = useParams();
   const [good, setGood] = useState({});
+  const [status, setStatus] = useState('IDLE');
   const dispatch = useDispatch();
-  const { user, isLoggedIn, isRefreshing } = useAuth();
+  const { user, isLoggedIn } = useAuth();
 
   useEffect(() => {
     async function getGood() {
+      setStatus('PENDING');
       try {
         const { data } = await axios.get(
           `https://indira-backend.vercel.app/api/goods/id/${id}`
         );
         setGood(data);
+        setStatus('FULFILLED');
       } catch (error) {
         console.log(error.message);
+        setStatus('REJECTED');
       }
     }
     getGood();
@@ -42,14 +49,17 @@ export const GoodDetailsItem = () => {
     }
   };
 
-  return (
-    good &&
-    !isRefreshing && (
+  return status === 'PENDING' ? (
+    <LoaderContainer>
+      <BeatLoader />
+    </LoaderContainer>
+  ) : (
+    good && status === 'FULFILLED' && (
       <GoodDetailsContainer>
         <GoodDetailsWrapper>
-          <div>
+          <GoodDetailsImgContainer>
             <GoodDetailsImg src={good.photoURL} alt="good" />
-          </div>
+          </GoodDetailsImgContainer>
           <div>
             <GoodDetailsTitle>{good.title}</GoodDetailsTitle>
             <GoodDetailsText>{good.text}</GoodDetailsText>

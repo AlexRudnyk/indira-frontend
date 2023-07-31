@@ -17,8 +17,11 @@ export const GoodDetailsWrapper = styled.div`
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
 `;
 
+export const GoodDetailsImgContainer = styled.div``;
+
 export const GoodDetailsImg = styled.img`
   width: 400px;
+  height: 300px;
   margin-right: 50px;
   border-radius: 20px;
 `;
@@ -51,4 +54,13 @@ export const GoodDetailsBtn = styled.button`
   -webkit-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
+`;
+
+export const LoaderContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #b36c40, white);
 `;

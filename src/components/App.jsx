@@ -15,7 +15,7 @@ import { CartPage } from 'pages/CartPage';
 import { GoodDetailsPage } from 'pages/GoodDetailsPage';
 
 export const App = () => {
-  const { isRefreshing, isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,36 +23,34 @@ export const App = () => {
   }, [dispatch, isLoggedIn]);
 
   return (
-    !isRefreshing && (
-      <>
-        <Routes>
-          <Route path="/" element={<SharedLayout />}>
-            <Route index element={<HomePage />} />
-            <Route
-              path="/register"
-              element={
-                <RestrictedRoute component={<RegisterPage />} redirectTo="/" />
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <RestrictedRoute component={<LoginPage />} redirectTo="/" />
-              }
-            />
-            <Route
-              path="/admin"
-              element={<AdminRoute component={<AdminPage />} redirectTo="/" />}
-            />
-            <Route
-              path="/cart"
-              element={<PrivateRoute component={<CartPage />} redirectTo="/" />}
-            />
-            <Route path="/details/:id" element={<GoodDetailsPage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Route>
-        </Routes>
-      </>
-    )
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute component={<RegisterPage />} redirectTo="/" />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute component={<LoginPage />} redirectTo="/" />
+            }
+          />
+          <Route
+            path="/admin"
+            element={<AdminRoute component={<AdminPage />} redirectTo="/" />}
+          />
+          <Route
+            path="/cart"
+            element={<PrivateRoute component={<CartPage />} redirectTo="/" />}
+          />
+          <Route path="/details/:id" element={<GoodDetailsPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </>
   );
 };

@@ -88,7 +88,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.rejected, handleRejected)
       .addCase(addToCart.pending, handlePending)
       .addCase(addToCart.fulfilled, (state, action) => {
-        state.user.goodsInCart = [action.payload, ...state.user.goodsInCart];
+        state.user.goodsInCart = [...state.user.goodsInCart, action.payload];
         state.isRefreshing = false;
         state.error = false;
       })
