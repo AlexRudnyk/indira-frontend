@@ -35,6 +35,7 @@ export const CartItemText = styled.p`
 
 export const CartItemImg = styled.img`
   width: 120px;
+  height: 90px;
   margin-right: 20px;
   border-radius: 10px;
 `;
@@ -86,4 +87,12 @@ export const CartItemDelBtn = styled.button`
   -webkit-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
+`;
+
+export const LoaderContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

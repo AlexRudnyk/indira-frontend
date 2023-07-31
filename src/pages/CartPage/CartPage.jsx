@@ -59,7 +59,6 @@ export const CartPage = () => {
 
   return isRefreshing ? (
     <LoaderContainer>
-      {' '}
       <BeatLoader />
     </LoaderContainer>
   ) : (

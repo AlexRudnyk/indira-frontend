@@ -15,6 +15,7 @@ import {
   CartItemQuantity,
   CartItemSum,
   CartItemDelBtn,
+  LoaderContainer,
 } from './CartItem.styled';
 
 export const CartItem = ({ goodId, getTotalSum, getOrder }) => {
@@ -48,7 +49,9 @@ export const CartItem = ({ goodId, getTotalSum, getOrder }) => {
   };
 
   return isRefreshing ? (
-    <BeatLoader />
+    <LoaderContainer>
+      <BeatLoader />
+    </LoaderContainer>
   ) : (
     <CartItemLine>
       <ChosenGoodWrapper>
