@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const AdminGoodItemLine = styled.li`
-  width: 700px;
   &:not(:last-child) {
     margin-bottom: 20px;
   }
@@ -11,11 +10,20 @@ export const AdminGoodItemLine = styled.li`
   -webkit-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
 `;
 
 export const AdminGoodItemWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const AdminGoodItemImg = styled.img`
@@ -25,12 +33,18 @@ export const AdminGoodItemImg = styled.img`
 `;
 
 export const AdminGoodItemText = styled.p`
-  width: 200px;
+  width: 150px;
   margin-right: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+  }
 `;
 
 export const AdminGoodItemPrice = styled.p`
-  margin-right: 30px;
+  @media screen and (min-width: 768px) {
+    margin-right: 30px;
+  }
 `;
 
 export const AdminGoodItemBtn = styled.button`
@@ -62,4 +76,14 @@ export const AdminTextWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 350px;
+`;
+
+export const ImgTextWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
 `;

@@ -10,6 +10,7 @@ import {
   ChosenGoodWrapper,
   CartItemTitle,
   CartItemText,
+  CartItemImgWrapper,
   CartItemImg,
   CartItemQuantityBtn,
   CartItemQuantity,
@@ -17,6 +18,7 @@ import {
   CartItemDelBtn,
   LoaderContainer,
 } from './CartItem.styled';
+import Media from 'react-media';
 
 export const CartItem = ({ goodId, getTotalSum, getOrder }) => {
   const [good, setGood] = useState({});
@@ -53,35 +55,46 @@ export const CartItem = ({ goodId, getTotalSum, getOrder }) => {
       <BeatLoader />
     </LoaderContainer>
   ) : (
-    <CartItemLine>
-      <ChosenGoodWrapper>
-        <div>
-          <CartItemImg src={good.photoURL} alt="good in cart" width="100px" />
-        </div>
-        <div>
-          <CartItemTitle>{good.title}</CartItemTitle>
-          <CartItemText>{good.text}</CartItemText>
-        </div>
-      </ChosenGoodWrapper>
-      <CounterWrapper>
-        <CartItemQuantityBtn
-          type="button"
-          onClick={handleMinusClick}
-          disabled={quantity <= 1}
-        >
-          -
-        </CartItemQuantityBtn>
-        <CartItemQuantity>{quantity}</CartItemQuantity>
-        <CartItemQuantityBtn type="button" onClick={handlePlusClick}>
-          +
-        </CartItemQuantityBtn>
-      </CounterWrapper>
-      <CartItemSum>{sum} UAH</CartItemSum>
-      <div>
-        <CartItemDelBtn type="button" onClick={handleDeleteClick}>
-          Delete
-        </CartItemDelBtn>
-      </div>
-    </CartItemLine>
+    <Media
+      queries={{
+        // small: '(max-width: 767.98px)',
+        medium: '(min-width: 768px)',
+      }}
+    >
+      {matches => (
+        <CartItemLine>
+          <ChosenGoodWrapper>
+            <CartItemImgWrapper>
+              <CartItemImg src={good.photoURL} alt="good in cart" />
+            </CartItemImgWrapper>
+            {matches.medium && (
+              <div>
+                <CartItemTitle>{good.title}</CartItemTitle>
+                <CartItemText>{good.text}</CartItemText>
+              </div>
+            )}
+          </ChosenGoodWrapper>
+          <CounterWrapper>
+            <CartItemQuantityBtn
+              type="button"
+              onClick={handleMinusClick}
+              disabled={quantity <= 1}
+            >
+              -
+            </CartItemQuantityBtn>
+            <CartItemQuantity>{quantity}</CartItemQuantity>
+            <CartItemQuantityBtn type="button" onClick={handlePlusClick}>
+              +
+            </CartItemQuantityBtn>
+          </CounterWrapper>
+          <CartItemSum>{sum} UAH</CartItemSum>
+          <div>
+            <CartItemDelBtn type="button" onClick={handleDeleteClick}>
+              Delete
+            </CartItemDelBtn>
+          </div>
+        </CartItemLine>
+      )}
+    </Media>
   );
 };

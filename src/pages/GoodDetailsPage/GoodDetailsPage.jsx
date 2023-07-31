@@ -3,6 +3,7 @@ import { useAuth } from 'hooks';
 import BeatLoader from 'react-spinners/BeatLoader';
 import {
   GoodDetailsPageSection,
+  GoodDetailsContainer,
   LoaderContainer,
 } from './GoodDetailsPage.styled';
 
@@ -14,7 +15,9 @@ export const GoodDetailsPage = () => {
     </LoaderContainer>
   ) : (
     <GoodDetailsPageSection>
-      <GoodDetailsItem />
+      <GoodDetailsContainer>
+        <GoodDetailsItem />
+      </GoodDetailsContainer>
     </GoodDetailsPageSection>
   );
 };

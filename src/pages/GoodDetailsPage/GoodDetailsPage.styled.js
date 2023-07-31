@@ -1,8 +1,37 @@
 import styled from 'styled-components';
 
 export const GoodDetailsPageSection = styled.section`
-  height: 100vh;
+  /* height: 100vh; */
   background: linear-gradient(to bottom right, #b36c40, white);
+
+  @media screen and (min-width: 768px) {
+    height: 100vh;
+  }
+`;
+
+export const GoodDetailsContainer = styled.div`
+  /* width: 1280px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 105px;
+  padding-bottom: 30px;
+
+  @media screen and (max-width: 767.98px) {
+    max-width: 420px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 728px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 130px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1240px;
+  }
 `;
 
 export const LoaderContainer = styled.div`

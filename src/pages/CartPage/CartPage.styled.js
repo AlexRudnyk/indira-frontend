@@ -1,15 +1,35 @@
 import styled from 'styled-components';
 
 export const CartPageSection = styled.section`
-  height: 100vh;
   background: linear-gradient(to bottom right, #b36c40, white);
+  height: ${props => (props.$length <= 2 ? '100vh' : '100%')};
+
+  @media screen and (min-width: 768px) {
+  }
 `;
 
 export const CartPageContainer = styled.div`
-  padding-top: 130px;
-  width: 1280px;
+  padding-top: 105px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+
+  @media screen and (max-width: 767.98px) {
+    max-width: 420px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 728px;
+    padding-top: 130px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1240px;
+  }
 `;
 
 export const CartPageTitle = styled.h3`

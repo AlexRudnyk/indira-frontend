@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import BeatLoader from 'react-spinners/BeatLoader';
 import {
-  GoodDetailsContainer,
   GoodDetailsWrapper,
   GoodDetailsImgContainer,
   GoodDetailsImg,
@@ -55,24 +54,22 @@ export const GoodDetailsItem = () => {
     </LoaderContainer>
   ) : (
     good && status === 'FULFILLED' && (
-      <GoodDetailsContainer>
-        <GoodDetailsWrapper>
-          <GoodDetailsImgContainer>
-            <GoodDetailsImg src={good.photoURL} alt="good" />
-          </GoodDetailsImgContainer>
-          <div>
-            <GoodDetailsTitle>{good.title}</GoodDetailsTitle>
-            <GoodDetailsText>{good.text}</GoodDetailsText>
-            <GoodDetailsText>{good.description}</GoodDetailsText>
-            <GoodDetailsText>Price: {good.price} UAH</GoodDetailsText>
-            {user.role !== 'admin' && (
-              <GoodDetailsBtn type="button" onClick={handleAddCartClick}>
-                Add to Cart
-              </GoodDetailsBtn>
-            )}
-          </div>
-        </GoodDetailsWrapper>
-      </GoodDetailsContainer>
+      <GoodDetailsWrapper>
+        <GoodDetailsImgContainer>
+          <GoodDetailsImg src={good.photoURL} alt="good" />
+        </GoodDetailsImgContainer>
+        <div>
+          <GoodDetailsTitle>{good.title}</GoodDetailsTitle>
+          <GoodDetailsText>{good.text}</GoodDetailsText>
+          <GoodDetailsText>{good.description}</GoodDetailsText>
+          <GoodDetailsText>Price: {good.price} UAH</GoodDetailsText>
+          {user.role !== 'admin' && (
+            <GoodDetailsBtn type="button" onClick={handleAddCartClick}>
+              Add to Cart
+            </GoodDetailsBtn>
+          )}
+        </div>
+      </GoodDetailsWrapper>
     )
   );
 };

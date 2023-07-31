@@ -11,6 +11,7 @@ import {
   AdminPageInput,
   AdminPageBtn,
   AdminPageTextArea,
+  AdminPageList,
 } from './AdminPage.styled';
 import { AdminGoodItem } from 'components/AdminGoodItem';
 import { useGoods } from 'hooks';
@@ -98,11 +99,11 @@ export const AdminPage = () => {
               </AdminPageForm>
             )}
           </Formik>
-          <ul>
+          <AdminPageList>
             {goodsReverse.map(good => (
               <AdminGoodItem good={good} key={good._id} />
             ))}
-          </ul>
+          </AdminPageList>
         </AdminPageWrapper>
       </AdminPageContainer>
     </AdminPageSection>

@@ -15,7 +15,6 @@ export const Backdrop = styled.div`
   backdrop-filter: blur(5px);
   overflow: scroll;
   z-index: 100;
-  padding: 20px;
 `;
 
 export const ModalWindow = styled.div`
@@ -28,11 +27,20 @@ export const ModalWindow = styled.div`
   overflow: auto;
   transform: translate(-50%, -50%);
   max-height: 95%;
-  width: 540px;
-  height: 572px;
+  /* width: 540px;
+  height: 572px; */
   background-color: white;
   border-radius: 20px;
   padding: 40px;
+
+  @media screen and (max-width: 767.98px) {
+    width: 300px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 540px;
+    height: 572px;
+  }
 `;
 
 export const ButtonClose = styled.button`
@@ -55,13 +63,24 @@ export const CloseSvg = styled(Close)`
 
 export const AdminPageWrapper = styled.div`
   display: flex;
-  margin-top: 100px;
+  margin-top: 50px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 100px;
+  }
 `;
 
 export const AdminPageForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  width: 400px;
+
+  @media screen and (max-width: 767.98px) {
+    width: 300px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
 `;
 
 export const AdminPageInput = styled(Field)`

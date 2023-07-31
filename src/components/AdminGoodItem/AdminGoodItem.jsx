@@ -8,10 +8,13 @@ import {
   AdminGoodItemPrice,
   AdminGoodItemBtn,
   AdminTextWrapper,
+  ImgTextWrapper,
+  ButtonsWrapper,
 } from './AdminGoodItem.styled';
 import { deleteGood, editGood } from 'redux/goods/operations';
 import { useState } from 'react';
 import { ModalEditGood } from 'components/ModalEditGood';
+import Media from 'react-media';
 
 export const AdminGoodItem = ({ good }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -34,27 +37,62 @@ export const AdminGoodItem = ({ good }) => {
   };
 
   return (
-    <AdminGoodItemLine>
-      <AdminGoodItemWrapper>
-        <AdminGoodItemImg src={good.photoURL} alt="good" />
-        <AdminTextWrapper>
-          <AdminGoodItemText>{good.title}</AdminGoodItemText>
-          <AdminGoodItemPrice>{good.price} UAH</AdminGoodItemPrice>
-        </AdminTextWrapper>
-        <AdminGoodItemBtn type="button" onClick={handleEditGoodClick}>
-          Edit
-        </AdminGoodItemBtn>
-        <AdminGoodItemBtn type="button" onClick={handleDeleteGoodClick}>
-          Delete
-        </AdminGoodItemBtn>
-        {isEditModalOpen && (
-          <ModalEditGood
-            onClose={handleEditModalClose}
-            onSubmit={handleEditModalSubmit}
-            good={good}
-          />
-        )}
-      </AdminGoodItemWrapper>
-    </AdminGoodItemLine>
+    <Media
+      queries={{
+        small: '(max-width: 767.98px)',
+        medium: '(min-width: 768px)',
+      }}
+    >
+      {matches => (
+        <AdminGoodItemLine>
+          <AdminGoodItemWrapper>
+            {matches.small && (
+              <>
+                <ImgTextWrapper>
+                  <AdminGoodItemImg src={good.photoURL} alt="good" />
+                  <AdminTextWrapper>
+                    <AdminGoodItemText>{good.title}</AdminGoodItemText>
+                    <AdminGoodItemPrice>{good.price} UAH</AdminGoodItemPrice>
+                  </AdminTextWrapper>
+                </ImgTextWrapper>
+                <ButtonsWrapper>
+                  <AdminGoodItemBtn type="button" onClick={handleEditGoodClick}>
+                    Edit
+                  </AdminGoodItemBtn>
+                  <AdminGoodItemBtn
+                    type="button"
+                    onClick={handleDeleteGoodClick}
+                  >
+                    Delete
+                  </AdminGoodItemBtn>
+                </ButtonsWrapper>
+              </>
+            )}
+            {matches.medium && (
+              <>
+                <AdminGoodItemImg src={good.photoURL} alt="good" />
+                <AdminTextWrapper>
+                  <AdminGoodItemText>{good.title}</AdminGoodItemText>
+                  <AdminGoodItemPrice>{good.price} UAH</AdminGoodItemPrice>
+                </AdminTextWrapper>
+                <AdminGoodItemBtn type="button" onClick={handleEditGoodClick}>
+                  Edit
+                </AdminGoodItemBtn>
+                <AdminGoodItemBtn type="button" onClick={handleDeleteGoodClick}>
+                  Delete
+                </AdminGoodItemBtn>
+              </>
+            )}
+            {isEditModalOpen && (
+              <ModalEditGood
+                onClose={handleEditModalClose}
+                onSubmit={handleEditModalSubmit}
+                good={good}
+              />
+            )}
+          </AdminGoodItemWrapper>
+        </AdminGoodItemLine>
+      )}
+    </Media>
   );
 };

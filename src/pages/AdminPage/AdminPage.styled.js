@@ -6,23 +6,43 @@ export const AdminPageSection = styled.section`
 `;
 
 export const AdminPageContainer = styled.div`
-  width: 1280px;
   padding-top: 130px;
   padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (max-width: 767.98px) {
+    max-width: 420px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 728px;
+    padding-top: 130px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1240px;
+  }
 `;
 
 export const AdminPageWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const AdminPageForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  margin-bottom: 30px;
   max-height: 550px;
-  margin-right: 100px;
   padding: 20px;
   border-radius: 20px;
   background-color: #fff;
@@ -30,6 +50,12 @@ export const AdminPageForm = styled(Form)`
   -webkit-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
+
+  @media screen and (min-width: 768px) {
+    margin-right: 100px;
+    width: 300px;
+    margin-bottom: 0;
+  }
 `;
 
 export const AdminPageInput = styled(Field)`
@@ -70,4 +96,10 @@ export const AdminPageBtn = styled.button`
   -webkit-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
+`;
+
+export const AdminPageList = styled.ul`
+  @media screen and (max-width: 767.98px) {
+    max-width: 420px;
+  }
 `;

@@ -1,28 +1,34 @@
 import styled from 'styled-components';
 
-export const GoodDetailsContainer = styled.div`
-  padding-top: 130px;
-  width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-`;
-
 export const GoodDetailsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   background-color: #fff;
   border-radius: 20px;
   padding: 20px;
   -webkit-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
-export const GoodDetailsImgContainer = styled.div``;
+export const GoodDetailsImgContainer = styled.div`
+  border-radius: 20px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 50px;
+    width: 400px;
+    height: 300px;
+    margin-bottom: 0;
+  }
+`;
 
 export const GoodDetailsImg = styled.img`
-  width: 400px;
-  height: 300px;
-  margin-right: 50px;
+  width: 100%;
   border-radius: 20px;
 `;
 

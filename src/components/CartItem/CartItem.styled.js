@@ -9,20 +9,31 @@ export const CounterWrapper = styled.div`
 export const CartItemLine = styled.li`
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   background-color: #fff;
 
   -webkit-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    margin-bottom: 50px;
+    padding: 5px;
+  }
 `;
 
 export const ChosenGoodWrapper = styled.div`
   display: flex;
-  width: 700px;
-  margin-right: 50px;
+  /* flex-direction: column; */
+
+  @media screen and (min-width: 768px) {
+    /* flex-direction: row; */
+    width: 700px;
+    margin-right: 50px;
+  }
 `;
 
 export const CartItemTitle = styled.h3`
@@ -33,11 +44,23 @@ export const CartItemText = styled.p`
   margin-bottom: 10px;
 `;
 
-export const CartItemImg = styled.img`
-  width: 120px;
-  height: 90px;
+export const CartItemImgWrapper = styled.div`
   margin-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 0;
+  }
+`;
+
+export const CartItemImg = styled.img`
+  width: 100%;
   border-radius: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 120px;
+    height: 90px;
+    margin-right: 20px;
+  }
 `;
 
 export const CartItemQuantityBtn = styled.button`

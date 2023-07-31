@@ -9,7 +9,10 @@ export const GoodsItemImg = styled.img`
   width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  height: 305px;
+
+  @media screen and (min-width: 768px) {
+    height: 305px;
+  }
 `;
 
 export const GoodsItemTitle = styled.h3`
