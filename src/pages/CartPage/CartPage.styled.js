@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const CartPageSection = styled.section`
   background: linear-gradient(to bottom right, #b36c40, white);
-  height: ${props => (props.$length <= 2 ? '100vh' : '100%')};
+  height: ${props => (props.$length <= 3 ? '100vh' : '100%')};
 
-  @media screen and (min-width: 768px) {
-  }
+  /* @media screen and (min-width: 768px) {
+  } */
 `;
 
 export const CartPageContainer = styled.div`
@@ -23,8 +23,8 @@ export const CartPageContainer = styled.div`
   @media screen and (min-width: 768px) {
     width: 728px;
     padding-top: 130px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -36,6 +36,10 @@ export const CartPageTitle = styled.h3`
   font-size: 32px;
   text-align: center;
   margin-bottom: 30px;
+`;
+
+export const CartPageList = styled.ul`
+  margin-bottom: 50px;
 `;
 
 export const TotalSumText = styled.p`

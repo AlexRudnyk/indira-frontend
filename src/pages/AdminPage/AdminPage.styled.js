@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 export const AdminPageSection = styled.section`
   background: linear-gradient(to bottom right, #b36c40, white);
+
+  @media screen and (min-width: 1280px) {
+    height: 100vw;
+  }
 `;
 
 export const AdminPageContainer = styled.div`
@@ -33,7 +37,11 @@ export const AdminPageWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1280px) {
     flex-direction: row;
   }
 `;
@@ -52,6 +60,10 @@ export const AdminPageForm = styled(Form)`
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
 
   @media screen and (min-width: 768px) {
+    width: 500px;
+  }
+
+  @media screen and (min-width: 1280px) {
     margin-right: 100px;
     width: 300px;
     margin-bottom: 0;

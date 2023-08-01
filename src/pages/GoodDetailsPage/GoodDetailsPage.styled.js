@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
 export const GoodDetailsPageSection = styled.section`
-  /* height: 100vh; */
+  height: 100vh;
   background: linear-gradient(to bottom right, #b36c40, white);
-
-  @media screen and (min-width: 768px) {
-    height: 100vh;
-  }
 `;
 
 export const GoodDetailsContainer = styled.div`

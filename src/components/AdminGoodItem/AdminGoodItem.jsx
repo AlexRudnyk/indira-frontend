@@ -66,6 +66,13 @@ export const AdminGoodItem = ({ good }) => {
                     Delete
                   </AdminGoodItemBtn>
                 </ButtonsWrapper>
+                {isEditModalOpen && (
+                  <ModalEditGood
+                    onClose={handleEditModalClose}
+                    onSubmit={handleEditModalSubmit}
+                    good={good}
+                  />
+                )}
               </>
             )}
             {matches.medium && (
@@ -81,14 +88,14 @@ export const AdminGoodItem = ({ good }) => {
                 <AdminGoodItemBtn type="button" onClick={handleDeleteGoodClick}>
                   Delete
                 </AdminGoodItemBtn>
+                {isEditModalOpen && (
+                  <ModalEditGood
+                    onClose={handleEditModalClose}
+                    onSubmit={handleEditModalSubmit}
+                    good={good}
+                  />
+                )}
               </>
-            )}
-            {isEditModalOpen && (
-              <ModalEditGood
-                onClose={handleEditModalClose}
-                onSubmit={handleEditModalSubmit}
-                good={good}
-              />
             )}
           </AdminGoodItemWrapper>
         </AdminGoodItemLine>

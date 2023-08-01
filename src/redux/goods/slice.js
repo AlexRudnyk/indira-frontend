@@ -55,7 +55,7 @@ const goodsSlice = createSlice({
       .addCase(editGood.pending, handlePending)
       .addCase(editGood.fulfilled, (state, action) => {
         const index = state.goods.findIndex(
-          good => good._id === action.payload.id
+          good => good._id === action.payload._id
         );
         state.goods.splice(index, 1, action.payload);
         state.isRefreshing = false;

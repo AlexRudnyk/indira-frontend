@@ -21,8 +21,6 @@ export const GoodDetailsImgContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-right: 50px;
-    width: 400px;
-    height: 300px;
     margin-bottom: 0;
   }
 `;
@@ -30,6 +28,14 @@ export const GoodDetailsImgContainer = styled.div`
 export const GoodDetailsImg = styled.img`
   width: 100%;
   border-radius: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 400px;
+  }
 `;
 
 export const GoodDetailsTitle = styled.h1`

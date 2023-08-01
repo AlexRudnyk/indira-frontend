@@ -9,7 +9,6 @@ export const CounterWrapper = styled.div`
 export const CartItemLine = styled.li`
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
@@ -17,6 +16,10 @@ export const CartItemLine = styled.li`
   -webkit-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 
   @media screen and (min-width: 768px) {
     flex-direction: row;

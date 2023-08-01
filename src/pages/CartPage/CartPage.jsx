@@ -7,6 +7,7 @@ import {
   CartPageContainer,
   CartPageTitle,
   TotalSumText,
+  CartPageList,
   MakeOrderWrapper,
   OrderBtn,
   TotalSumSpan,
@@ -67,7 +68,7 @@ export const CartPage = () => {
         {user.goodsInCart.length !== 0 ? (
           <>
             <CartPageTitle>Your goods in cart</CartPageTitle>
-            <ul>
+            <CartPageList>
               {user.goodsInCart.map(goodId => (
                 <CartItem
                   goodId={goodId}
@@ -76,7 +77,7 @@ export const CartPage = () => {
                   getOrder={handleGetOrder}
                 />
               ))}
-            </ul>
+            </CartPageList>
             <MakeOrderWrapper>
               <TotalSumText>
                 Your order is <TotalSumSpan>{totalSum}</TotalSumSpan> UAH

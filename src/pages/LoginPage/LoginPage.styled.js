@@ -23,6 +23,8 @@ export const LoginPageContainer = styled.div`
     padding-top: 130px;
     padding-left: 20px;
     padding-right: 20px;
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (min-width: 1280px) {

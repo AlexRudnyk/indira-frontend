@@ -11,7 +11,7 @@ export const GoodsItemImg = styled.img`
   border-top-right-radius: 20px;
 
   @media screen and (min-width: 768px) {
-    height: 305px;
+    /* height: 305px; */
   }
 `;
 
