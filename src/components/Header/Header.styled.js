@@ -46,7 +46,6 @@ export const LogoLinksWrapper = styled.div`
 export const Logo = styled(Link)`
   display: inline-block;
   padding: 0 15px;
-  margin-right: 20px;
   font-size: 32px;
   color: brown;
   font-family: 'Dancing Script', cursive;
@@ -54,6 +53,10 @@ export const Logo = styled(Link)`
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
+    margin-right: 50px;
+  }
+
+  @media screen and (min-width: 1280px) {
     margin-right: 100px;
   }
 `;
@@ -63,10 +66,11 @@ export const NavHomeLink = styled(Link)`
   padding: 10px;
   color: inherit;
   font-weight: bold;
+  transition: color 0.2s ease-in-out;
 
   &:hover,
   &:focus {
-    border-bottom: 3px solid brown;
+    color: brown;
   }
 `;
 

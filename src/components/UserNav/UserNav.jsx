@@ -30,7 +30,7 @@ export const UserNav = () => {
       ) : (
         <CartLinkWrapper>
           <UserNavLink to="/cart">Cart</UserNavLink>
-          {user.goodsInCart?.length !== 0 && (
+          {user.goodsInCart?.length > 0 && (
             <GoodsInCartIndicator>
               <IndicatorText>{user.goodsInCart?.length}</IndicatorText>
             </GoodsInCartIndicator>

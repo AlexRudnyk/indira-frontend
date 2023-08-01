@@ -31,7 +31,6 @@ export const Header = () => {
                 <HeaderWrapper>
                   <LogoLinksWrapper>
                     <Logo to="/">Indira</Logo>
-                    {/* <NavHomeLink to="/">Home</NavHomeLink> */}
                   </LogoLinksWrapper>
                   <NavWrapper>
                     {isLoggedIn ? <UserNav /> : <AuthNav />}
