@@ -8,6 +8,7 @@ import {
   deleteFromCart,
   clearCart,
 } from './operations';
+import { toast } from 'react-toastify';
 
 const initialState = {
   user: {
@@ -56,7 +57,11 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = false;
       })
-      .addCase(login.rejected, handleRejected)
+      .addCase(login.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload.message || false;
+        toast.error(action.payload.message);
+      })
 
       .addCase(logout.pending, handlePending)
       .addCase(logout.fulfilled, (state, action) => {

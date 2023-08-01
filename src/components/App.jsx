@@ -15,12 +15,12 @@ import { CartPage } from 'pages/CartPage';
 import { GoodDetailsPage } from 'pages/GoodDetailsPage';
 
 export const App = () => {
-  const { isLoggedIn } = useAuth();
+  const { user, isLoggedIn } = useAuth();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch, isLoggedIn, user._id]);
 
   return (
     <>
