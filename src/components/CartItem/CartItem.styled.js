@@ -30,10 +30,8 @@ export const CartItemLine = styled.li`
 
 export const ChosenGoodWrapper = styled.div`
   display: flex;
-  /* flex-direction: column; */
 
   @media screen and (min-width: 768px) {
-    /* flex-direction: row; */
     width: 700px;
     margin-right: 50px;
   }
@@ -98,11 +96,11 @@ export const CartItemSum = styled.div`
 export const CartItemDelBtn = styled.button`
   padding: 10px;
   cursor: pointer;
-  background-color: #b36c40;
+  background-color: transparent;
   border: none;
   border-radius: 10px;
   text-align: center;
-  color: white;
+  color: grey;
 
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -110,9 +108,9 @@ export const CartItemDelBtn = styled.button`
     transform: scale(1.1);
   }
 
-  -webkit-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
+  /* -webkit-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75); */
 `;
 
 export const LoaderContainer = styled.div`

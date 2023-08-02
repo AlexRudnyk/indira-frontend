@@ -54,12 +54,12 @@ export const AdminGoodItemBtn = styled.button`
   &:not(:last-child) {
     margin-right: 30px;
   }
-  background-color: #b36c40;
+  background-color: transparent;
   border: none;
   border-radius: 10px;
   text-align: center;
-  font-family: inherit;
-  color: white;
+  /* font-family: inherit; */
+  color: grey;
 
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -67,9 +67,9 @@ export const AdminGoodItemBtn = styled.button`
     transform: scale(1.1);
   }
 
-  -webkit-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
+  /* -webkit-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 27px 0px rgba(0, 0, 0, 0.75); */
 `;
 
 export const AdminTextWrapper = styled.div`

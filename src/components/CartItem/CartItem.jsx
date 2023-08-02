@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { deleteFromCart } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import BeatLoader from 'react-spinners/BeatLoader';
+import { ImBin2 } from 'react-icons/im';
+
 import {
   CounterWrapper,
   CartItemLine,
@@ -90,7 +92,7 @@ export const CartItem = ({ goodId, getTotalSum, getOrder }) => {
           <CartItemSum>{sum} UAH</CartItemSum>
           <div>
             <CartItemDelBtn type="button" onClick={handleDeleteClick}>
-              Delete
+              <ImBin2 />
             </CartItemDelBtn>
           </div>
         </CartItemLine>

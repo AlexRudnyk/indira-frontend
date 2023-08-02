@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-
+import { ImPencil, ImBin2 } from 'react-icons/im';
 import {
   AdminGoodItemWrapper,
   AdminGoodItemImg,
@@ -57,13 +57,13 @@ export const AdminGoodItem = ({ good }) => {
                 </ImgTextWrapper>
                 <ButtonsWrapper>
                   <AdminGoodItemBtn type="button" onClick={handleEditGoodClick}>
-                    Edit
+                    <ImPencil />
                   </AdminGoodItemBtn>
                   <AdminGoodItemBtn
                     type="button"
                     onClick={handleDeleteGoodClick}
                   >
-                    Delete
+                    <ImBin2 />
                   </AdminGoodItemBtn>
                 </ButtonsWrapper>
                 {isEditModalOpen && (
@@ -83,10 +83,10 @@ export const AdminGoodItem = ({ good }) => {
                   <AdminGoodItemPrice>{good.price} UAH</AdminGoodItemPrice>
                 </AdminTextWrapper>
                 <AdminGoodItemBtn type="button" onClick={handleEditGoodClick}>
-                  Edit
+                  <ImPencil />
                 </AdminGoodItemBtn>
                 <AdminGoodItemBtn type="button" onClick={handleDeleteGoodClick}>
-                  Delete
+                  <ImBin2 />
                 </AdminGoodItemBtn>
                 {isEditModalOpen && (
                   <ModalEditGood

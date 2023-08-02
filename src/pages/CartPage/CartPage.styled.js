@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CartPageSection = styled.section`
   background: linear-gradient(to bottom right, #b36c40, white);
-  height: ${props => (props.$length <= 3 ? '100vh' : '100%')};
+  height: ${props => (props.$length <= 6 ? '100vh' : '100%')};
 
   @media screen and (min-width: 768px) {
     height: ${props => (props.$length <= 4 ? '100vh' : '100%')};
