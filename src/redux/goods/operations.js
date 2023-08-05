@@ -2,8 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-// axios.defaults.baseURL = 'https://indira-backend.vercel.app';
-axios.defaults.baseURL = 'http://localhost:3030';
+axios.defaults.baseURL = 'https://indira-backend.vercel.app';
+// axios.defaults.baseURL = 'http://localhost:3030';
 
 export const getAllGoods = createAsyncThunk(
   'goods/getAll',
