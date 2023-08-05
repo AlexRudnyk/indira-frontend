@@ -32,7 +32,7 @@ export const CartItem = ({ goodId, getTotalSum, getOrder }) => {
   const sum = good.price * quantity;
 
   useEffect(() => {
-    const { _id, title, text, description, photoURL, price } = goods.find(
+    const { _id, title, text, description, photoURL, price } = goods?.find(
       item => item._id === goodId
     );
     setGood({ _id, title, text, description, photoURL, price });

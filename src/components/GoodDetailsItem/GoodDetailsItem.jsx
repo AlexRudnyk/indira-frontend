@@ -10,25 +10,34 @@ import {
   GoodDetailsText,
   GoodDetailsBtn,
   LoaderContainer,
+  CommentsWrapper,
+  CommentClick,
 } from './GoodDetailsItem.styled';
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'redux/auth/operations';
-import { useAuth } from 'hooks';
+import { useAuth, useComments } from 'hooks';
 import { toast } from 'react-toastify';
+import { CommentItem } from 'components/CommentItem';
+import { getComments } from 'redux/comments/operations';
 
-export const GoodDetailsItem = () => {
+export const GoodDetailsItem = ({ isShowCommentOpen }) => {
   const { id } = useParams();
   const [good, setGood] = useState({});
   const [status, setStatus] = useState('IDLE');
+  const [showComment, setShowComment] = useState(false);
   const dispatch = useDispatch();
   const { user, isLoggedIn } = useAuth();
+  const { comments } = useComments();
+
+  const reversedComments = [...comments].reverse();
 
   useEffect(() => {
     async function getGood() {
       setStatus('PENDING');
       try {
         const { data } = await axios.get(
-          `https://indira-backend.vercel.app/api/goods/id/${id}`
+          // `https://indira-backend.vercel.app/api/goods/id/${id}`
+          `http://localhost:3030/api/goods/id/${id}`
         );
         setGood(data);
         setStatus('FULFILLED');
@@ -40,6 +49,10 @@ export const GoodDetailsItem = () => {
     getGood();
   }, [id]);
 
+  useEffect(() => {
+    dispatch(getComments(id));
+  }, [dispatch, id]);
+
   const handleAddCartClick = () => {
     if (isLoggedIn) {
       dispatch(addToCart(id));
@@ -48,28 +61,53 @@ export const GoodDetailsItem = () => {
     }
   };
 
+  const handleShowCommentClick = () => {
+    setShowComment(!showComment);
+  };
+
+  useEffect(() => {
+    isShowCommentOpen(showComment);
+  }, [isShowCommentOpen, showComment]);
+
   return status === 'PENDING' ? (
     <LoaderContainer>
       <BeatLoader />
     </LoaderContainer>
   ) : (
     good && status === 'FULFILLED' && (
-      <GoodDetailsWrapper>
-        <GoodDetailsImgContainer>
-          <GoodDetailsImg src={good.photoURL} alt="good" />
-        </GoodDetailsImgContainer>
-        <div>
-          <GoodDetailsTitle>{good.title}</GoodDetailsTitle>
-          <GoodDetailsText>{good.text}</GoodDetailsText>
-          <GoodDetailsText>{good.description}</GoodDetailsText>
-          <GoodDetailsText>Price: {good.price} UAH</GoodDetailsText>
-          {user.role !== 'admin' && (
-            <GoodDetailsBtn type="button" onClick={handleAddCartClick}>
-              Add to Cart
-            </GoodDetailsBtn>
-          )}
-        </div>
-      </GoodDetailsWrapper>
+      <>
+        <GoodDetailsWrapper>
+          <GoodDetailsImgContainer>
+            <GoodDetailsImg src={good.photoURL} alt="good" />
+          </GoodDetailsImgContainer>
+          <div>
+            <GoodDetailsTitle>{good.title}</GoodDetailsTitle>
+            <GoodDetailsText>{good.text}</GoodDetailsText>
+            <GoodDetailsText>{good.description}</GoodDetailsText>
+            <GoodDetailsText>Price: {good.price} UAH</GoodDetailsText>
+            {user.role !== 'admin' && (
+              <GoodDetailsBtn type="button" onClick={handleAddCartClick}>
+                Add to Cart
+              </GoodDetailsBtn>
+            )}
+            <CommentClick
+              onClick={handleShowCommentClick}
+              $length={comments?.length}
+            >
+              Comments ({comments?.length})
+            </CommentClick>
+          </div>
+        </GoodDetailsWrapper>
+        {showComment && (
+          <CommentsWrapper>
+            <ul>
+              {reversedComments?.map(comment => (
+                <CommentItem key={comment._id} comment={comment} />
+              ))}
+            </ul>
+          </CommentsWrapper>
+        )}
+      </>
     )
   );
 };

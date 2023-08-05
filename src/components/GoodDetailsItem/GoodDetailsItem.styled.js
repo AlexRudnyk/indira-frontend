@@ -9,6 +9,7 @@ export const GoodDetailsWrapper = styled.div`
   -webkit-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
   box-shadow: 7px 15px 20px 0px rgba(0, 0, 0, 0.6);
+  margin-bottom: 50px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -56,6 +57,7 @@ export const GoodDetailsBtn = styled.button`
   border-radius: 10px;
   text-align: center;
   color: white;
+  margin-bottom: 20px;
 
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -74,4 +76,20 @@ export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const CommentsWrapper = styled.div``;
+
+export const CommentClick = styled.div`
+  padding: 5px 0;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: brown;
+  }
+
+  pointer-events: ${({ $length }) => ($length ? 'auto' : 'none')};
 `;

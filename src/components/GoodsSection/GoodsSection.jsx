@@ -25,7 +25,7 @@ export const GoodsSection = () => {
       <BeatLoader />
     </LoaderContainer>
   ) : (
-    <GoodsSectionContainer>
+    <GoodsSectionContainer $length={goods.length}>
       {goods.length !== 0 && (
         <>
           <GoodsList>

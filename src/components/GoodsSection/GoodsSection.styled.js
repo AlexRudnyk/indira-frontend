@@ -11,6 +11,7 @@ export const GoodsSectionContainer = styled.div`
 
   @media screen and (max-width: 767.98px) {
     max-width: 420px;
+    height: ${props => (props.$length <= 1 ? '100vh' : '100%')};
   }
 
   @media screen and (min-width: 768px) {
@@ -18,10 +19,12 @@ export const GoodsSectionContainer = styled.div`
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 130px;
+    height: ${props => (props.$length <= 2 ? '100vh' : '100%')};
   }
 
   @media screen and (min-width: 1280px) {
     width: 1240px;
+    height: ${props => (props.$length <= 3 ? '100vh' : '100%')};
   }
 `;
 
@@ -29,10 +32,6 @@ export const GoodsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-
-  /* @media screen and (min-width: 768px) {
-    gap: 30px;
-  } */
 `;
 
 export const GoodsItem = styled.li`
