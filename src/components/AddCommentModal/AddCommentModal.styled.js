@@ -27,8 +27,6 @@ export const ModalWindow = styled.div`
   overflow: auto;
   transform: translate(-50%, -50%);
   max-height: 95%;
-  /* width: 540px;
-  height: 572px; */
   background-color: white;
   border-radius: 20px;
   padding: 40px;
@@ -61,16 +59,16 @@ export const CloseSvg = styled(Close)`
   cursor: pointer;
 `;
 
-export const AdminPageWrapper = styled.div`
+export const AddcommentModalWrapper = styled.div`
   display: flex;
   margin-top: 50px;
 
   @media screen and (min-width: 768px) {
-    margin-top: 100px;
+    margin-top: 200px;
   }
 `;
 
-export const AdminPageForm = styled(Form)`
+export const AddCommentForm = styled(Form)`
   display: flex;
   flex-direction: column;
 
@@ -94,12 +92,12 @@ export const AdminPageInput = styled(Field)`
   }
 `;
 
-export const AdminPageTextArea = styled(AdminPageInput)`
+export const AddCommentTextArea = styled(AdminPageInput)`
   resize: none;
 `;
 
-export const AdminPageBtn = styled.button`
-  width: 70px;
+export const AddCommentBtn = styled.button`
+  width: 120px;
   padding: 10px;
   cursor: pointer;
   background-color: #b36c40;

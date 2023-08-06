@@ -75,6 +75,7 @@ export const AdminPageInput = styled(Field)`
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid black;
+  font-family: inherit;
   &:focus {
     outline: none;
   }

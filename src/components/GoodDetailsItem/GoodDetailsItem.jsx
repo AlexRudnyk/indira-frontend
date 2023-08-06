@@ -5,26 +5,31 @@ import BeatLoader from 'react-spinners/BeatLoader';
 import {
   GoodDetailsWrapper,
   GoodDetailsImgContainer,
+  GoodDetailsDescriptionContainer,
   GoodDetailsImg,
   GoodDetailsTitle,
   GoodDetailsText,
   GoodDetailsBtn,
   LoaderContainer,
+  CommentClickWrapper,
   CommentsWrapper,
   CommentClick,
+  AddCommentClick,
 } from './GoodDetailsItem.styled';
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'redux/auth/operations';
 import { useAuth, useComments } from 'hooks';
 import { toast } from 'react-toastify';
 import { CommentItem } from 'components/CommentItem';
-import { getComments } from 'redux/comments/operations';
+import { addComment, getComments } from 'redux/comments/operations';
+import { AddCommentModal } from 'components/AddCommentModal';
 
 export const GoodDetailsItem = ({ isShowCommentOpen }) => {
   const { id } = useParams();
   const [good, setGood] = useState({});
   const [status, setStatus] = useState('IDLE');
   const [showComment, setShowComment] = useState(false);
+  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
   const dispatch = useDispatch();
   const { user, isLoggedIn } = useAuth();
   const { comments } = useComments();
@@ -36,8 +41,8 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
       setStatus('PENDING');
       try {
         const { data } = await axios.get(
-          `https://indira-backend.vercel.app/api/goods/id/${id}`
-          // `http://localhost:3030/api/goods/id/${id}`
+          // `https://indira-backend.vercel.app/api/goods/id/${id}`
+          `http://localhost:3030/api/goods/id/${id}`
         );
         setGood(data);
         setStatus('FULFILLED');
@@ -65,6 +70,23 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
     setShowComment(!showComment);
   };
 
+  const handleModalAddCommentClick = () => {
+    setIsCommentModalOpen(!isCommentModalOpen);
+  };
+
+  const handleAddCommentModalClose = () => {
+    setIsCommentModalOpen(!isCommentModalOpen);
+  };
+
+  const handleAddCommentModalSubmit = values => {
+    console.log('IS LOGGED IN', isLoggedIn);
+    if (isLoggedIn) {
+      dispatch(addComment({ id, values }));
+    } else {
+      toast.error('please login');
+    }
+  };
+
   useEffect(() => {
     isShowCommentOpen(showComment);
   }, [isShowCommentOpen, showComment]);
@@ -80,7 +102,7 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
           <GoodDetailsImgContainer>
             <GoodDetailsImg src={good.photoURL} alt="good" />
           </GoodDetailsImgContainer>
-          <div>
+          <GoodDetailsDescriptionContainer>
             <GoodDetailsTitle>{good.title}</GoodDetailsTitle>
             <GoodDetailsText>{good.text}</GoodDetailsText>
             <GoodDetailsText>{good.description}</GoodDetailsText>
@@ -90,13 +112,18 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
                 Add to Cart
               </GoodDetailsBtn>
             )}
-            <CommentClick
-              onClick={handleShowCommentClick}
-              $length={comments?.length}
-            >
-              Comments ({comments?.length})
-            </CommentClick>
-          </div>
+            <CommentClickWrapper>
+              <CommentClick
+                onClick={handleShowCommentClick}
+                $length={comments?.length}
+              >
+                Comments ({comments?.length})
+              </CommentClick>
+              <AddCommentClick onClick={handleModalAddCommentClick}>
+                Add comment
+              </AddCommentClick>
+            </CommentClickWrapper>
+          </GoodDetailsDescriptionContainer>
         </GoodDetailsWrapper>
         {showComment && (
           <CommentsWrapper>
@@ -106,6 +133,12 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
               ))}
             </ul>
           </CommentsWrapper>
+        )}
+        {isCommentModalOpen && (
+          <AddCommentModal
+            onSubmit={handleAddCommentModalSubmit}
+            onClose={handleAddCommentModalClose}
+          />
         )}
       </>
     )

@@ -26,6 +26,8 @@ export const GoodDetailsImgContainer = styled.div`
   }
 `;
 
+export const GoodDetailsDescriptionContainer = styled.div``;
+
 export const GoodDetailsImg = styled.img`
   width: 100%;
   border-radius: 20px;
@@ -80,8 +82,15 @@ export const LoaderContainer = styled.div`
 
 export const CommentsWrapper = styled.div``;
 
+export const CommentClickWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-self: self-end;
+`;
+
 export const CommentClick = styled.div`
   padding: 5px 0;
+  width: 110px;
   cursor: pointer;
   color: inherit;
   transition: color 0.2s ease-in-out;
@@ -92,4 +101,17 @@ export const CommentClick = styled.div`
   }
 
   pointer-events: ${({ $length }) => ($length ? 'auto' : 'none')};
+`;
+
+export const AddCommentClick = styled.div`
+  padding: 5px 0;
+  width: 110px;
+  cursor: pointer;
+  color: inherit;
+  transition: color 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: brown;
+  }
 `;
