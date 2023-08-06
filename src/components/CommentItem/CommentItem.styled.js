@@ -27,3 +27,41 @@ export const CommentListItemdate = styled.p`
   text-align: end;
   color: lightgrey;
 `;
+
+export const AdminCommentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const AdminCommentBtn = styled.button`
+  width: 70px;
+  padding: 10px;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  color: grey;
+
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+export const ReplyWrapper = styled.div`
+  border-top: 2px solid lightgrey;
+  padding: 20px 0;
+  margin-top: 10px;
+`;
+
+export const ReplyAdminName = styled.p`
+  color: grey;
+  margin-bottom: 20px;
+`;
+
+export const ReplyText = styled.p``;

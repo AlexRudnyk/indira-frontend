@@ -71,7 +71,11 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
   };
 
   const handleModalAddCommentClick = () => {
-    setIsCommentModalOpen(!isCommentModalOpen);
+    if (isLoggedIn) {
+      setIsCommentModalOpen(!isCommentModalOpen);
+    } else {
+      toast.error('Please login to leave a comment');
+    }
   };
 
   const handleAddCommentModalClose = () => {
@@ -79,12 +83,7 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
   };
 
   const handleAddCommentModalSubmit = values => {
-    console.log('IS LOGGED IN', isLoggedIn);
-    if (isLoggedIn) {
-      dispatch(addComment({ id, values }));
-    } else {
-      toast.error('please login');
-    }
+    dispatch(addComment({ id, values }));
   };
 
   useEffect(() => {

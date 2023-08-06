@@ -38,7 +38,6 @@ export const addComment = createAsyncThunk(
         values
       );
       toast.success('Comment added successfully');
-      console.log('DATA', data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -46,14 +45,26 @@ export const addComment = createAsyncThunk(
   }
 );
 
-// export const deleteGood = createAsyncThunk(
-//   'goods/deleteGood',
-//   async (id, thunkAPI) => {
-//     try {
-//       const { data } = await axios.delete(`/api/goods/delete/${id}`);
-//       return data._id;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.response.data);
-//     }
-//   }
-// );
+export const deleteComment = createAsyncThunk(
+  'comments/deleteComment',
+  async (id, thunkAPI) => {
+    try {
+      const { data } = await axios.delete(`/api/comments/delete/${id}`);
+      return data._id;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const replyComment = createAsyncThunk(
+  'comments/replyComment',
+  async ({ id, values }, thunkAPI) => {
+    try {
+      const { data } = await axios.patch(`/api/comments/reply/${id}`, values);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);

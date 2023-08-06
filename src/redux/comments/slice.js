@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addComment, getComments } from './operations';
+import {
+  addComment,
+  getComments,
+  deleteComment,
+  replyComment,
+} from './operations';
 
 const initialState = {
   comments: [],
@@ -37,34 +42,27 @@ const commentsSlice = createSlice({
         state.isRefreshing = false;
         state.error = false;
       })
-      .addCase(addComment.rejected, handleRejected);
+      .addCase(addComment.rejected, handleRejected)
 
-    //   .addCase(getGoodById.pending, handlePending)
-    //   .addCase(getGoodById.fulfilled, (state, action) => {
-    //     state.goods = state.goods.filter(
-    //       good => good._id === action.payload.id
-    //     );
-    //     state.isRefreshing = false;
-    //     state.error = false;
-    //   })
-    //   .addCase(getGoodById.rejected, handleRejected)
-    //   .addCase(editGood.pending, handlePending)
-    //   .addCase(editGood.fulfilled, (state, action) => {
-    //     const index = state.goods.findIndex(
-    //       good => good._id === action.payload._id
-    //     );
-    //     state.goods.splice(index, 1, action.payload);
-    //     state.isRefreshing = false;
-    //     state.error = false;
-    //   })
-    //   .addCase(editGood.rejected, handleRejected)
-    //   .addCase(deleteGood.pending, handlePending)
-    //   .addCase(deleteGood.fulfilled, (state, action) => {
-    //     state.goods = state.goods.filter(good => good._id !== action.payload);
-    //     state.isRefreshing = false;
-    //     state.error = false;
-    //   })
-    //   .addCase(deleteGood.rejected, handleRejected);
+      .addCase(deleteComment.pending, handlePending)
+      .addCase(deleteComment.fulfilled, (state, action) => {
+        state.comments = state.comments.filter(
+          comment => comment._id !== action.payload
+        );
+        state.isRefreshing = false;
+        state.error = false;
+      })
+      .addCase(deleteComment.rejected, handleRejected)
+      .addCase(replyComment.pending, handlePending)
+      .addCase(replyComment.fulfilled, (state, action) => {
+        const index = state.comments.findIndex(
+          comment => comment._id === action.payload._id
+        );
+        state.comments.splice(index, 1, action.payload);
+        state.isRefreshing = false;
+        state.error = false;
+      })
+      .addCase(replyComment.rejected, handleRejected);
   },
 });
 
