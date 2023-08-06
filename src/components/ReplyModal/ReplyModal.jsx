@@ -3,13 +3,13 @@ import { createPortal } from 'react-dom';
 import { ErrorMessage, Formik } from 'formik';
 import {
   Backdrop,
-  ModalWindow,
   ButtonClose,
   CloseSvg,
-  ReplyModalWrapper,
+  ModalWindow,
+  ReplyBtn,
   ReplyModalForm,
   ReplyModalTextArea,
-  ReplyBtn,
+  ReplyModalWrapper,
 } from './ReplyModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
