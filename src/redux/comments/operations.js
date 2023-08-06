@@ -2,8 +2,8 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-// axios.defaults.baseURL = 'https://indira-backend.vercel.app';
-axios.defaults.baseURL = 'http://localhost:3030';
+axios.defaults.baseURL = 'https://indira-backend.vercel.app';
+// axios.defaults.baseURL = 'http://localhost:3030';
 
 export const getComments = createAsyncThunk(
   'comments/getComments',
@@ -16,18 +16,6 @@ export const getComments = createAsyncThunk(
     }
   }
 );
-
-// export const getGoodById = createAsyncThunk(
-//   'goods/getById',
-//   async (id, thunkAPI) => {
-//     try {
-//       const { data } = await axios.get(`/api/goods/id/${id}`);
-//       return data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.response.data);
-//     }
-//   }
-// );
 
 export const addComment = createAsyncThunk(
   'comments/addComment',
