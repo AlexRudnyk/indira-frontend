@@ -30,7 +30,7 @@ const schema = yup.object().shape({
     .max(12, 'password length must be less than 12 characters')
     .matches(
       /^[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>/?]*$/,
-      ' whitespaces are forbidden.'
+      'only latinic letters. whitespaces are forbidden'
     )
     .required(),
 });

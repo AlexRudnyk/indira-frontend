@@ -26,7 +26,9 @@ export const GoodDetailsImgContainer = styled.div`
   }
 `;
 
-export const GoodDetailsDescriptionContainer = styled.div``;
+export const GoodDetailsDescriptionContainer = styled.div`
+  width: 100%;
+`;
 
 export const GoodDetailsImg = styled.img`
   width: 100%;
@@ -85,7 +87,6 @@ export const CommentsWrapper = styled.div``;
 export const CommentClickWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-self: self-end;
 `;
 
 export const CommentClick = styled.div`

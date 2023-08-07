@@ -48,7 +48,7 @@ export const PreviewImg = styled.img`
 export const PreviewImgSuccess = styled.img`
   position: absolute;
   top: 0;
-  right: 0;
+  right: -30px;
   width: 20px;
   display: ${props => (props.$isUploaded ? 'block' : 'none')};
 `;

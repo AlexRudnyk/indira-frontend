@@ -38,11 +38,6 @@ const schema = yup.object().shape({
       /^[a-zA-Z0-9!@#$%^&*()\-_=+{};:,<.>/?]*$/,
       'only latinic letters. whitespaces are forbidden'
     )
-    // .matches(/^(?=.*[0-9])/, 'must contain at least one numeric character')
-    // .matches(
-    //   /^(?=.*[a-z])(?=.*[A-Z])/,
-    //   'must contain at least: one upper case letter, one lower case letter, only latin-based alphabet'
-    // )
     .required(),
 });
 
