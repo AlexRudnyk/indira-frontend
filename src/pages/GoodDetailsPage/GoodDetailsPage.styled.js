@@ -4,8 +4,8 @@ export const GoodDetailsPageSection = styled.section`
   background: linear-gradient(to bottom right, #b36c40, white);
 
   @media screen and (max-width: 767.98px) {
-    height: ${props =>
-      props.$isCommentOpen || props.$length ? '100%' : '100vh'};
+    /* height: ${props =>
+      props.$isCommentOpen || props.$length ? '100%' : '100vh'}; */
   }
 
   @media screen and (min-width: 768px) {
