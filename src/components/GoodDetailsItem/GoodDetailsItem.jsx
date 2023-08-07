@@ -118,9 +118,11 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
               >
                 Comments ({comments?.length})
               </CommentClick>
-              <AddCommentClick onClick={handleModalAddCommentClick}>
-                Add comment
-              </AddCommentClick>
+              {user.role !== 'admin' && (
+                <AddCommentClick onClick={handleModalAddCommentClick}>
+                  Add comment
+                </AddCommentClick>
+              )}
             </CommentClickWrapper>
           </GoodDetailsDescriptionContainer>
         </GoodDetailsWrapper>
