@@ -62,7 +62,7 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
     if (isLoggedIn) {
       dispatch(addToCart(id));
     } else {
-      toast.error('please login');
+      toast.warning('please login');
     }
   };
 
@@ -74,7 +74,7 @@ export const GoodDetailsItem = ({ isShowCommentOpen }) => {
     if (isLoggedIn) {
       setIsCommentModalOpen(!isCommentModalOpen);
     } else {
-      toast.error('Please login to leave a comment');
+      toast.warning('Please login to leave a comment');
     }
   };
 
